@@ -16,379 +16,102 @@
       --border:  #C8D4E8;
       --text:    #1C2B3A;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
+    body { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--white); }
 
-    body {
-      font-family: 'IBM Plex Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text);
-      background: var(--white);
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--navy);
-      border-bottom: 2px solid var(--accent);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 52px;
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--accent);
+      padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 52px;
     }
-    nav .brand {
-      font-family: 'IBM Plex Mono', monospace;
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--accent);
-      letter-spacing: 0.04em;
-      text-decoration: none;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.6rem;
-    }
-    nav ul a {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    nav .brand { font-family: 'IBM Plex Mono', monospace; font-weight: 600; font-size: 1rem; color: var(--accent); letter-spacing: 0.04em; text-decoration: none; }
+    nav ul { list-style: none; display: flex; gap: 1.4rem; }
+    nav ul a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
     nav ul a:hover { color: var(--accent); }
 
-    /* ── HERO ── */
-    #home {
-      background: var(--navy);
-      color: var(--white);
-      padding: 5rem 2rem 4rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+    /* HERO */
+    #home { background: var(--navy); color: var(--white); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
     #home::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 59px,
-        rgba(255,255,255,0.025) 59px,
-        rgba(255,255,255,0.025) 60px
-      );
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.025) 59px, rgba(255,255,255,0.025) 60px);
       pointer-events: none;
     }
-    .hero-tag {
-      display: inline-block;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 0.25rem 0.75rem;
-      margin-bottom: 1.5rem;
-    }
-    #home h1 {
-      font-family: 'IBM Plex Serif', serif;
-      font-size: clamp(1.6rem, 4vw, 2.6rem);
-      font-weight: 600;
-      line-height: 1.25;
-      max-width: 780px;
-      margin: 0 auto 0.75rem;
-    }
+    .hero-tag { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 0.25rem 0.75rem; margin-bottom: 1.5rem; }
+    #home h1 { font-family: 'IBM Plex Serif', serif; font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.25; max-width: 780px; margin: 0 auto 0.75rem; }
     #home h1 span { color: var(--accent); }
-    .hero-sub {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 2rem;
-      font-style: italic;
-    }
-    .hero-meta {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .hero-meta-item .label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-    .hero-meta-item .value {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.88);
-      font-weight: 300;
-    }
-    .divider-accent {
-      width: 48px;
-      height: 3px;
-      background: var(--accent);
-      margin: 2.5rem auto;
-    }
+    .hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.65); margin-bottom: 2rem; font-style: italic; }
+    .hero-meta { display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2rem; }
+    .hero-meta-item { display: flex; flex-direction: column; align-items: center; }
+    .hero-meta-item .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.2rem; }
+    .hero-meta-item .value { font-size: 0.9rem; color: rgba(255,255,255,0.88); font-weight: 300; }
 
-    /* ── SECTIONS ── */
-    section {
-      padding: 4rem 2rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    section.shaded {
-      max-width: 100%;
-      background: var(--light);
-      padding: 4rem 2rem;
-    }
+    /* SECTIONS */
+    section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+    section.shaded { max-width: 100%; background: var(--light); padding: 4rem 2rem; }
     section.shaded .inner { max-width: 900px; margin: 0 auto; }
-
-    .section-label {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    h2 {
-      font-family: 'IBM Plex Serif', serif;
-      font-size: 1.55rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 1.4rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 2px solid var(--border);
-    }
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    h2 { font-family: 'IBM Plex Serif', serif; font-size: 1.55rem; font-weight: 600; color: var(--navy); margin-bottom: 1.4rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--border); }
     p { margin-bottom: 1rem; color: var(--text); }
 
-    /* ── DATES TABLE ── */
-    .dates-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .dates-grid .row {
-      display: contents;
-    }
-    .dates-grid .cell {
-      padding: 0.75rem 1.1rem;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.88rem;
-    }
-    .dates-grid .cell:nth-child(odd) {
-      background: var(--white);
-      font-weight: 600;
-      color: var(--navy);
-      border-right: 1px solid var(--border);
-    }
-    .dates-grid .cell:nth-child(even) {
-      background: var(--white);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      color: var(--blue);
-    }
+    /* DATES */
+    .dates-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+    .dates-grid .cell { padding: 0.75rem 1.1rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+    .dates-grid .cell:nth-child(odd) { background: var(--white); font-weight: 600; color: var(--navy); border-right: 1px solid var(--border); }
+    .dates-grid .cell:nth-child(even) { background: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; color: var(--blue); }
     .dates-grid .cell.highlight { background: var(--navy); color: var(--white); }
-    .dates-grid .cell.highlight-val {
-      background: var(--navy);
-      color: var(--accent);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-    }
-    .aoe-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.6rem;
-      font-style: italic;
-    }
+    .dates-grid .cell.highlight-val { background: var(--navy); color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; }
+    .aoe-note { font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; font-style: italic; }
 
-    /* ── TOPICS ── */
-    .topics-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem 1.5rem;
-    }
-    .topics-list li {
-      font-size: 0.88rem;
-      padding-left: 1rem;
-      position: relative;
-      line-height: 1.5;
-    }
-    .topics-list li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.75rem;
-      top: 0.15rem;
-    }
+    /* TOPICS */
+    .topics-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1.5rem; }
+    .topics-list li { font-size: 0.88rem; padding-left: 1rem; position: relative; line-height: 1.5; }
+    .topics-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.75rem; top: 0.15rem; }
 
-    /* ── SUBMISSION ── */
-    .sub-box {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--blue);
-      padding: 1.2rem 1.4rem;
-      margin-bottom: 1rem;
-      border-radius: 0 2px 2px 0;
-    }
-    .sub-box h3 {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.5rem;
-    }
+    /* SUBMISSION */
+    .sub-box { background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue); padding: 1.2rem 1.4rem; margin-bottom: 1rem; border-radius: 0 2px 2px 0; }
+    .sub-box h3 { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.5rem; }
     .sub-box p { font-size: 0.88rem; margin-bottom: 0.3rem; }
-    code {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.82rem;
-      background: var(--light);
-      padding: 0.15rem 0.4rem;
-      border-radius: 2px;
-      color: var(--navy);
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 1.2rem;
-      padding: 0.65rem 1.6rem;
-      background: var(--accent);
-      color: var(--navy);
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.15s;
-    }
+    code { font-family: 'IBM Plex Mono', monospace; font-size: 0.82rem; background: var(--light); padding: 0.15rem 0.4rem; border-radius: 2px; color: var(--navy); }
+    .btn { display: inline-block; margin-top: 1.2rem; padding: 0.65rem 1.6rem; background: var(--accent); color: var(--navy); font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 2px; transition: background 0.2s, transform 0.15s; }
     .btn:hover { background: #d08c10; transform: translateY(-1px); }
 
-    /* ── SCHEDULE ── */
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-    .schedule-table th {
-      background: var(--navy);
-      color: var(--white);
-      padding: 0.65rem 1rem;
-      text-align: left;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .schedule-table td {
-      padding: 0.65rem 1rem;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
+    /* SCHEDULE */
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .schedule-table th { background: var(--navy); color: var(--white); padding: 0.65rem 1rem; text-align: left; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .schedule-table td { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
     .schedule-table tr:nth-child(even) td { background: var(--light); }
-    .schedule-table .time {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--blue);
-      white-space: nowrap;
-      width: 140px;
-    }
-    .schedule-table .break-row td {
-      background: var(--navy);
-      color: rgba(255,255,255,0.6);
-      font-style: italic;
-      font-size: 0.82rem;
-    }
+    .schedule-table .time { font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; color: var(--blue); white-space: nowrap; width: 140px; }
+    .schedule-table .break-row td { background: var(--navy); color: rgba(255,255,255,0.6); font-style: italic; font-size: 0.82rem; }
     .schedule-table .break-row .time { color: rgba(255,255,255,0.5); }
 
-    /* ── ORGANIZERS ── */
-    .org-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.2rem;
-    }
-    .org-card {
-      border: 1px solid var(--border);
-      padding: 1.3rem;
-      border-radius: 2px;
-      background: var(--white);
-    }
-    .org-card .name {
-      font-family: 'IBM Plex Serif', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.2rem;
-    }
-    .org-card .affil {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.6rem;
-      font-style: italic;
-    }
-    .org-card .email {
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--blue);
-    }
+    /* ORGANIZERS */
+    .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .org-card { border: 1px solid var(--border); padding: 1.3rem; border-radius: 2px; background: var(--white); }
+    .org-card .name { font-family: 'IBM Plex Serif', serif; font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.2rem; }
+    .org-card .affil { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.6rem; font-style: italic; }
+    .org-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 1rem; border: 3px solid var(--border); }
+    .org-card { text-align: center; }
+    .org-card .email { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--blue); }
 
-    /* ── PC MEMBERS ── */
-    .pc-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem 1rem;
-    }
+    /* PC */
+    .pc-section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin: 1.8rem 0 0.8rem; border-bottom: 1px solid var(--border); padding-bottom: 0.3rem; }
+    .pc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem 1rem; }
     .pc-item { font-size: 0.85rem; }
     .pc-item .pc-name { font-weight: 600; color: var(--navy); }
     .pc-item .pc-affil { font-size: 0.75rem; color: var(--muted); }
 
-    /* ── KEYNOTE ── */
-    .keynote-box {
-      border: 1px dashed var(--border);
-      padding: 1.5rem;
-      text-align: center;
-      color: var(--muted);
-      font-style: italic;
-      font-size: 0.9rem;
-      border-radius: 2px;
-    }
+    /* KEYNOTE */
+    .keynote-box { border: 1px dashed var(--border); padding: 1.5rem; text-align: center; color: var(--muted); font-style: italic; font-size: 0.9rem; border-radius: 2px; }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.5);
-      text-align: center;
-      padding: 1.5rem;
-      font-size: 0.78rem;
-      font-family: 'IBM Plex Mono', monospace;
-    }
+    /* FOOTER */
+    footer { background: var(--navy); color: rgba(255,255,255,0.5); text-align: center; padding: 1.5rem; font-size: 0.78rem; font-family: 'IBM Plex Mono', monospace; }
     footer a { color: var(--accent); text-decoration: none; }
 
-    @media (max-width: 640px) {
-      nav ul { gap: 0.8rem; }
-      nav ul a { font-size: 0.7rem; }
+    @media (max-width: 700px) {
+      nav ul { gap: 0.7rem; }
+      nav ul a { font-size: 0.68rem; }
       .topics-list { grid-template-columns: 1fr; }
       .org-grid { grid-template-columns: 1fr; }
       .pc-grid { grid-template-columns: 1fr 1fr; }
@@ -441,9 +164,9 @@
 <section id="about">
   <div class="section-label">Overview</div>
   <h2>About SecDLT</h2>
-  <p>Distributed ledger technologies (DLTs) are increasingly being incorporated into IoT, 5G/6G, vehicular networks, and edge computing systems, enabling decentralized trust, secure data management, and automated governance. However, this integration simultaneously creates new and underexplored security and privacy risks at the intersection of DLT and communication network infrastructure.</p>
-  <p>SecDLT is a full-day workshop that provides a dedicated forum to address these challenges rigorously. It brings together researchers and practitioners from distributed computing, network security, and applied cryptography to surface open problems, present original research, and catalyze new collaborations. The workshop features a keynote talk, three refereed paper sessions, and a closing open discussion on emerging research directions.</p>
-  <p>Workshop papers will be published in the <strong>ACM International Conference Proceeding Series (ICPS)</strong>, indexed by ACM, DBLP, and Scopus.</p>
+  <p>Distributed ledger technology (DLT) is gradually becoming an important part of IoT, 5G/6G, vehicular networks, and edge computing systems, helping to ensure decentralized trust, secure data management, and automated control. But this convergence is also creating new and not yet fully understood security and privacy risks at the intersection of DLT and communication network infrastructure.</p>
+  <p>SecDLT is a full-day workshop that serves as a dedicated platform to address these challenges. It brings together researchers and practitioners in distributed computing, network security, and applied cryptography to identify open problems, present new research, and create opportunities for future collaborations.</p>
+  <p>Workshop papers will be published in the <strong>ACM International Conference Proceeding Series (ICPS)</strong>, as a companion volume alongside the main conference proceedings, indexed by ACM, DBLP, and Scopus.</p>
 </section>
 
 <!-- TOPICS -->
@@ -451,13 +174,13 @@
   <div class="inner">
     <div class="section-label">Scope</div>
     <h2>Topics of Interest</h2>
-    <p>We invite original, unpublished research contributions on topics including, but not limited to:</p>
+    <p>We invite original, unpublished research contributions on topics related to DLT-enabled networks, including, but not limited to:</p>
     <ul class="topics-list">
       <li>Smart contract security, formal verification, and runtime monitoring</li>
-      <li>Consensus mechanism security in resource-constrained environments</li>
-      <li>Privacy-preserving protocols: ZKPs, STARKs, zkVMs, and MPC</li>
+      <li>Consensus mechanism security in resource-constrained and uncertain environments</li>
+      <li>Privacy-preserving protocols: ZKPs, SNARKs, STARKs, zkVMs, and MPC</li>
       <li>Secure cross-domain DLT interoperability in heterogeneous deployments</li>
-      <li>Decentralized identity (DID), authentication, and access control for IoT and zero-trust architectures</li>
+      <li>Decentralized identity (DID), authentication, and access control</li>
       <li>Privacy-preserving data sharing, auditing, and provenance on distributed ledgers</li>
       <li>Post-quantum cryptography for distributed ledger communications</li>
       <li>Blockchain-based intrusion and anomaly detection</li>
@@ -473,11 +196,11 @@
   <div class="section-label">Timeline</div>
   <h2>Important Dates</h2>
   <div class="dates-grid">
-    <div class="cell highlight">Workshop Paper Submission</div>
+    <div class="cell highlight">Paper Submission Deadline</div>
     <div class="cell highlight-val">September 1, 2026</div>
-    <div class="cell">Acceptance Notification</div>
+    <div class="cell">Notification of Acceptance</div>
     <div class="cell">October 15, 2026</div>
-    <div class="cell">Camera-Ready Submission</div>
+    <div class="cell">Camera-Ready &amp; Registration</div>
     <div class="cell">October 29, 2026</div>
     <div class="cell">Conference Dates</div>
     <div class="cell">January 4–7, 2027</div>
@@ -492,31 +215,25 @@
     <h2>Submission Guidelines</h2>
 
     <div class="sub-box">
-      <h3>Template</h3>
-      <p>All submissions must use the official LaTeX ACM article template (<code>acmart.cls</code>, v2.16+):</p>
-      <p><code>\documentclass[sigconf,authordraft]{acmart}</code></p>
-      <p>Templates available at <a href="https://www.acm.org/publications/proceedings-template" target="_blank">acm.org/publications/proceedings-template</a>.</p>
-    </div>
-
-    <div class="sub-box">
-      <h3>Paper Length</h3>
-      <p><strong>Regular Papers:</strong> Up to <strong>10 pages</strong> (double-column, including figures, tables, and references). A clearly marked appendix for supplementary material is permitted.</p>
-      <p><strong>Short Papers:</strong> Up to <strong>5 pages</strong> (double-column, including all content).</p>
+      <h3>Paper Format</h3>
+      <p>All submissions must be written in English and formatted according to the <strong>ACM double-column conference style</strong>. Papers must be submitted as PDF files via the workshop submission portal.</p>
+      <p><strong>Full Papers:</strong> 6–10 pages (including references)</p>
+      <p><strong>Short Papers:</strong> 4–6 pages (including references)</p>
     </div>
 
     <div class="sub-box">
       <h3>Review Process</h3>
-      <p><strong>Double-blind review</strong> — author names, affiliations, and email addresses must not appear anywhere in the submission. Use third-person references to your prior work. Minimum 3 reviews per submission. Acceptance rate capped at <strong>40%</strong> per ICDCN steering committee policy.</p>
+      <p><strong>Double-blind review</strong> — author names, affiliations, and self-identifying references must be removed from submissions. All papers will receive a minimum of 3 reviews. Acceptance rate is capped at <strong>40%</strong> per ICDCN steering committee policy.</p>
     </div>
 
     <div class="sub-box">
-      <h3>Generative AI Policy</h3>
-      <p>Use of generative AI tools is permitted in accordance with <a href="https://www.acm.org/publications/policies/frequently-asked-questions" target="_blank">ACM guidelines</a>.</p>
+      <h3>Registration</h3>
+      <p>ICDCN 2027 will follow a <strong>single registration fee</strong> for the entire 4-day event. There will be no workshop-only registration fee. At least one author of each accepted paper must register and present in person.</p>
     </div>
 
     <div class="sub-box">
       <h3>Publication</h3>
-      <p>Accepted papers will appear in the <strong>ACM ICPS companion proceedings</strong>. At least one author must register and present in person. Authors at institutions not in the ACM Open program may be subject to an Article Processing Charge (APC). See <a href="https://www.acm.org/publications/icps/author-guidance" target="_blank">ACM author guidance</a>.</p>
+      <p>Accepted papers will be published as a companion volume alongside the main conference proceedings via <strong>ACM ICPS</strong>. Authors at institutions not in the ACM Open program may be required to pay an Article Processing Charge (APC). See <a href="https://www.acm.org/publications/icps/author-guidance" target="_blank">ACM author guidance</a> for details.</p>
     </div>
 
     <a class="btn" href="https://easychair.org/my/conference?conf=icdcn2027" target="_blank">Submit via EasyChair →</a>
@@ -527,6 +244,10 @@
 <section id="program">
   <div class="section-label">Schedule</div>
   <h2>Planned Program</h2>
+
+  <div style="margin-bottom:1.5rem;">
+    <div class="keynote-box">Keynote speaker to be announced. Workshop organized before the main conference.</div>
+  </div>
 
   <table class="schedule-table">
     <thead>
@@ -539,7 +260,7 @@
       </tr>
       <tr>
         <td class="time">09:15 – 10:00</td>
-        <td><strong>Keynote Talk</strong> — Security and Privacy Challenges in DLT-enabled Communication Networks</td>
+        <td><strong>Keynote Talk</strong></td>
       </tr>
       <tr>
         <td class="time">10:00 – 11:00</td>
@@ -575,11 +296,6 @@
       </tr>
     </tbody>
   </table>
-
-  <div style="margin-top:2rem;">
-    <div class="section-label" style="margin-bottom:0.6rem;">Invited Speaker</div>
-    <div class="keynote-box">Keynote speaker to be announced upon workshop acceptance.</div>
-  </div>
 </section>
 
 <!-- ORGANIZERS -->
@@ -589,30 +305,42 @@
     <h2>Organizing Committee</h2>
     <div class="org-grid">
       <div class="org-card">
+        <img src="data:image/jpeg;base64,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" alt="Dr. Soumyadev Maity" class="org-photo" />
         <div class="name">Dr. Soumyadev Maity</div>
         <div class="affil">Assistant Professor, Dept. of Information Technology<br>IIIT Allahabad, India</div>
         <div class="email">soumyadev@iiita.ac.in</div>
       </div>
       <div class="org-card">
+        <img src="data:image/jpeg;base64,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" alt="Dr. Sameer G Kulkarni" class="org-photo" />
+        <div class="name">Dr. Sameer G Kulkarni</div>
+        <div class="affil">Indian Institute of Technology Gandhinagar, India</div>
+        <div class="email">sameergk@iitgn.ac.in</div>
+      </div>
+      <div class="org-card">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCADIAMgDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD1h/8AWfgP5UlPcfvPwH8qbWZoFLRRQAtIzLGu5+FHzE+1LXE/ETxCunaZ/Z8UgF1c8YB5VR1NJuyGlcwPGnjgXZeztHYWgOGYdZD6fSvNNQuyySZOGIBP+yPSkuLlPNV/4YumfWql+8bRTSHrxURWupq9jFlvTM7AsSvaofMOR8xxShAxwq8VPHYySEbUOK2ukYqLZNbXLI4w5DfpW1Hc291Hh1VZBx7GqFtockozkg+lSPo91F8ygtjvU8yZpySQrK9vL5sIOR2xkGpvNjkHnwAiQ/6yPOMH1qvEt6h2kEfWnNlVJMaA+o71LK5XuaEMySRkq7MV5CuM/nVR9Qkt5CecHnb2qgWlR96FlPrnpUr3CzpiRQH9R3qVETkWReRysCj+WTy69vwq5DesSMuQRxk+tc8S0T4HQ1YimO0g9T0+tDgCmdXBdCcmORvmA9e9d14O8bfZJE0vUnPkOcRSsc7D6V5TaXOWUkgN0OfWtlJPMJ3ICVGSw7e9Zv3WXuj6MDbxuBBB5BHeg1x3gLWXu9KNpKxaSHo2c5U12I4qk7mLVmFJRRTGLH/rk/3hRRH/AK5P94UUASP/AKz8B/KmU9/9Z+A/lTa3Mwpe1JRQMpatqsOk2UlzNwqLkD+8a+dPEmvvqmq3F0X3SyHBLfwr2Ar034qXVxHaiKMsIiOfevEA+GIx1Pes7alrREk8u9VQDB64qNI3nDx/3ufyoVDJLjOTniul0LQ5LuQPInyD9at2SCKcmVtN0PeFZl6jiugtdGWMAMnNblvpvlsu5flHStLyB2GK5ZTbO6FNIwDpflo21KYLME4C9q6FoeMVCsW2QmocmjRRTMJtNUqQVrIudLCkgDFds0AYHPeqU9jnkelZ+0dynTRwUumsASOlZ01qVPNd7Pp/yk7c1hXllk9MVpCrqZTo3Ryci4BqPkAY+ta11Z4U8Z70230/7QEwvXiuj2itc43Sd7GfHOQefrWrHeMx8xTgFdpqhfWMlq2CMVWgd1YDGR3FOymrhrB2PTPAl/ONbjjhk24I+T1r3BTkDP3j1HpXzN4fvJLbXLOWJ2hIkGGAyRX0pblmgRnwWZQSwGM1CVhTdyY009aU009aokfF/r0/3hRRF/rk/wB4UUASP/rP+Aj+VNpz/wCs/AfyptbGYUuaSigDzj4u/Jo8G0FSW+91zXhZU7jnrmvqDxbaQ3Xh67M1uJ2SMsiY5BxxivmI7muXJG0luVPakkFzT0Oz+1XiIq5Zmr12y0yOCBFVeQtcj4D0tXD3rdOi5r0ATJDCWlYKo5NTLU66MbLmK3kc4xQYazLnX9jMY0JXoKzZPFkiMQYCxHvXO6bOlVEdDJDxVdoyDwKyLfxbDK+yaNomPtmtWO8inAKMOfQ1lKLRrGVx6xnvUnkBhk0CUHtTZrlETLHGOaxauWQz2w2EDFYdzYEk/KDTNV8TujGG0jywP3j0rCl1vUZGIkGP90U40ZbpkuolpYt3OnEoy7QCak07SikIOORzVaO7uJVAZm+mOa3NOulMKxuPm9aJ8yVgi09TG8Qaas1t5qDLqvQVwqExsyFcV6tdohRgOhFeb65aG1vmyPlPTFbYSb2ZzYuH2kLpi+ZqVshLcyLyp5XntX1FZKEsbdQzt+7X5n6nivmTwzGbnXrCAOVZpQoYDJFfUAUoioeqgDiuprU4Bxpp60UUikPi/wBcn+8KKSL/AF6f7wopASP1P0H8qSlfqfoP5U2tzMWiiigCG5jEtnKhPBUjPpXy7q9uLbXLuJTkJI3J7nNfU5ChSG6NkV84ePLEWHjG7jRTtJ3hieuaSBHf+E7byvD1tlQCybjxV3UYPtDqgJxjketLoIC6BZkc5iFSTzxQygythyPlRRljSWjOyL92xn/2OCoyOPpVebRI85VFzWhcaybZS32WQIOrykKPyrnb/wAax20m50ADdMnr+VY1OboaQ5I6SI57SJGKTIMZ4IqxZW4iP7s4X0zWYurJqql4mVie27pV/R59jlLgbEYgLI33c1jG+0jf3d0ackzRr0rJvrt3GMnGK6S50yQqWCMeOw4rlNTX7KxBDFzwqgck1nJWlY0i7q5DBZtePgJ3610Nl4fgA+cDd7msKz1KSxgMzW6jnA8x8Fj9Kpaj4svbSYpLujJAbCY6H3q+STWjMnUjHc6O50yOJ32Hn61mcRMQF2sO9ZC6/KRHJPJKhflTgHirouTcruDxyMBnjKk1l7OWzK5oy2NQzrcRcAEj9a5XxVD/AKLG+PmJxW3ZyhCCWRC3G1mGfyrN8TKZ9MEkMbybTklBuA/GrpRcZozrNOmzO+H4U+NdNUrkmXjnGCK+ljxwOOelfP8A8KNJlu/GUNyse6O1Uu2fU178pyvOc579a7Hueal1FoopKQD4v9cn+8KKIv8AXp/vCigaJH6n6D+VNpz9T9B/Km1sQFFFFABXn3xD8JafqMZ1Lzo4LtU/jOA3/wBevQa4rxoryyiJcZIAwRwBUydkaUo88mjnLNNTl0O3TT7gxxiIAS7Buz9KfpMN/YtereXU15OSuJnUKQuOn0rS8MkyeH7cfxKSv5GtjyPnLEAE4yazctDrhCxzF1pVpeANqEpZxzjPSsnWdGsL6NRJJI6oMLsG3j0rsry3Vyy7QT0zis4aOsjbmGB6VDq2RpGkpbnIWGi2yypDBDIBGcqVk5z9a6IwRWemXpkaMK0RDBumcdvf3rRW3FuNiKFQdxUV1FHcReQw83f8uzHr3rm53e5s4JKyKGh6RpU9layLDdZeFWbzLlm5I+tY5gs9O8QrEvmIs6lPmYuSc9s9K7jTtJS0iWNQAEU8DtgdK5y+tVj1JbiRflVsBu4OaxnN3NIR0sNutNVog6wRzGM52kViTwwXEn+k2iFhxyuTXXQTCZyAVIzj61LLYRTNuKKDRCs1oxuknucgllaMyqbcAe4q7baNZrMrxcMDnFdAmkxKc4GewzViOwjQ7mPPoB0qKlVrYFTRy6eGLHzp7ma1jM5kLBuScVgeKYzb6XttmeKNXwRG2Bz616DdLsQgAgVxPiqM/wBlccZkFaYerJy1MK8EomXoM0+jzxXFnI6zcEsrdvSvfdI1BdV0mC+XgyDDD3HWvCrW2HlRqPpmvYPA6OnhaDf/AH2wK6YTbm0Z4inFUU1udDRSUV0nnD4f9cn+8KKIv9cn+8KKAJn+/j2H8qZT3/1n4D+VMrUkKKKKACvP/iL5kZhwPkfAJFd/WN4n0hdX0p4zjzE+ZW9KiaujfCyUamvU5TwahGgqmfmjmYZ9q6VkDJyKxdBt/sVi0APKyHn1rX83C4NZ2udcvi0KcuEJqpPOAmc/rU17KA3B4rmtSvD92PJYnGM1z1I8p0wV0XxLLdTrDCMk9T6Vq2tmlk++WUF+hPpWBbLNp6LLtJLDJrA1K+8QTXQmtZ1jjVsCN14P4040+onK56E+sW9szcgj1rGkuLbU5HUkKpPWuXutVL2u6Qr5hHzKp6N7Vz8OoanHd+Y03lRZ5jC5/Ws6lHmdy4VOXc7OYtpdyo8wSRMeGHatO3vWbocgVyNvdyapdbU3lI+TuHetCC6eNthGD05rndNI1vzanWxXQOCcYPTNLLcqSMEj61hQ3JWMBwMjoc0kt73/AK1LhcG0kaV/OoXrXJeJnWXRW/2XBq9c3pkU84rMvV+0WBRuQWXj8a3ow5dTmqyvoM01N0MZT5iTgV7ZpFp9i0e0t+hjjGfcnkmvMfDGmfa9YtoQMRBg7ewHOa9aJyckYPb2FdFFatnPjJ3SggpKKK6EcI+L/XJ/vCikh/1yf7wooETP/rPwH8qbSuf3n4D+VNrYkM0ZoopAFMkAeORfVafQeaARyiQtBLKhGPmNJI+5TWvqyASRuABng1iuCFxWTR2wlzK5nXbEocdRWPaWiSXhnmHyp6nrWzcJyR2Nczq889skZjUlN/zfSsZR1uzpi3Y6OeeBoCVIIHYVh3MEkqs0WQCOhFQWOqwPJsjkBk9G4xUk9+m1h9pUN3wa15XYcIts582d2Llv3B2k8HbxUk9hKqrlDk9qsy6sBFs84EA9d3NU5NTTjM361zy5joVOPU0bAxWqsCee9MnnikcsvUViT6qq53HOfQVFDI9wdyFsZ78Vk6f2g5raI6BJ2Pc0NIeearwhwi+o61IeaEQ3dDHYnvUqAPDJGSAMA/rURXvWr4dt4rrV4YJkDxucMp7irjroc8vd1Oz8Cw/6HdXOwfMwRWx1HtXWZyc1HFFFBEIoI1jjXhVUYAp9dUI8qscNWfPK4tIelFIelUZj4f8AXJ/vCiiL/Xp/vCigCZ/9Z/wEfyptOk/1n4D+VNrUkKKKKACijNGaQijqse+13DqhzWDJ0zXUugdGQ/xCuWuVMDskgwVPNRI6aMraFOZSeeKzJbNJtyOuRnNaUjEkjtSRRjJNYtanWmZsOl2u35oUB/vY5qteababflgjJHU4rdZQVPFZl7bOyEIMZFXzWVjSEmmc89rYq2fsqMRVW4dGGxLWFFx2WpbjSbguTuYVXNjNH8pJIrCTR1e0l2KbWyMeQD7AVOsaogCqBU6WxjOTmlKgHNZc1zOT1uORwEA4zSZyah/i61MDxRYzbGnJ4GM10fgmDzfECHB2xqWP9K5wnceCAa9B8Bac8NlNqEi7ftHyoD12jvW1JanLXlodh15x3oo7UldBwi0h5FFFAx8J/fp/vCiki/18f+8KKBk0n+s/Afypuac/+s/AfyptakC5ozSUUAFIaWmmgArO1Wxa7TzoMGZB93+8K0QMn2rlvGvjez8HWSM8f2i9nH7iDOP+BN6Ck1cafK7mO9x5crJIu0qcENwRU8Fyh4BB5rB8P63eeNNHudS1JIROtwYkMS4AXA49+vWroheFtuT8vFYyVmdsJXjc2GIHPaoppE29aprcMg+bmqV1fDBA4qZIuMiaeaIcHknvWdNJFk/MKqtO0hwcY9c1VmALbs1zyhc3VRk8sq9Bg1TkfHSmNJgHAqFnJNRGFhSnceG5qQOSMAZPaqv404Ng9+la2M76HR+HPD02t3WTlLNOZZCOo9BXq0UUdvBHDGu1EUBV9BWP4VuLWTw/bQ280TyRIPMRCPlb3FbOWP3u3FdEIWVzhqScnYdSUUlaGYtITxRnikzUjHxf69P94UUkR/fJ/vCigCdz+8/AfypuaWQ/vPwA/Sm1qSLmjNJR9aAHZphOCc0p6dRWH4k8U6d4Z0xry6Jkb7qRIeXb0p7k7GtdXUFlbSXN1KsUMQyzMcDAr5d8Ya7L4g8Q3eoSOSjMVjB52qOmK0/FPjfVPFNx+/k8m1U/JBGflA9/WuTn+Y7j1FVayBO7PZ/h9p72Pg2ISDDTyGYj69P0Fb8iA545qj4auluPD9iyEbTEoAH0rTYZY1zS3O2GiKTIQSOorPu7dST8vOK29gxVa5i4yBmpaNIuxy8sW0EfrVVxjitq7ix27VjyjBJrGWhstUU3HvUWcGpZDzUOOaTELmjJx0zSgUhyOlC0YmtDl5tVv9E8TTXVhdSQSqwOQ3DfUd6+gPBHitPFehC5fC3UR2ToOx9q8A8R26PIJOjDAPvWj8P/ABb/AMIrrrSzBpLO4GyZB29GFdkXeJ58laTPpRuDikqpYaja6pZpe2M6z28gyGU/d9jVonp784oJAmkJoJ4pCaTGPhP79P8AeFFJCf3yf7wooAsS43kgg9Djv0ptcTq3xKsLaT/iXaXqGoSADBWEovT1NcVqvjrx1qW9LTT5LCJunkxZcf8AAjWhGp7HeX1pp0RlvbqC3jHVpXCiuSvfil4WtbgW8F6bmQ9ZIx8i/jXjFzo3iTVJjLd2t9dSHq0xJ/Q8Ug8Ha+VAGmMozxuIpoNTr/Efxg1C4me30OMQQA48+Rcu59QOwrhtV8R6vrjY1K+eZYzujB4Cn2xWzY/DrWrydFmEcCN95idzfgKk8WeB28PWqywGaQAZZpMDj6VajYlu5xmc9Ka4yPrRuzznOe9KTkU2I7n4feIPs/8AxLLiT5QcxknpXpqyK3Oc/SvniKVra4SZDgqc8V6x4Y8SpfQJFMw3qMfWueSOujO6szsS1QSvwfSk85WHXmopTlcioZsihdcgkmsS4xuNa10xwaxZ8kk5rCe5vHYpSfepgFPblqULUDGUyV1VMk055FUEVlX92IkbngCqjFtkTlZGHrtzvuTGp+prMU4OQSDRPMZpmc96atdsI2VjzZy5nc6rwf4yv/CV+ZYP3trLxNbE/K/uPQ17t4Z8ZaT4pgJspik8YHmQSkBl+nrXzGCT0rY0DVho+qJctai4TbsdGcqfqpHQ0pKyuhRPqNyQSMHj14pD90GvH9P+K50+4VG8y6sSPlEv+ti/2c/xV6NovirSPEMKyWV0m4jmJ+GFTurl3NuI/vk/3hRRD/r0HcMKKQy1PDZqwBKgEDGMDtVd7azZNx2gezVm3lvqBuV3KHXA+X04qrOL3G1bY7azTlcu0bGwbOybqgP1NVntrDeECRlgemaop/aAj+S1IPvVRLbUVlaR7bLHvnFa80uxHu9zoYo7a3BZAik9AB0ri/Gk1vcyG2nB2yxlQTW7Da6g3DAIvqT0rD8WeHt9slwk7faN3XtitpX5bkK3NY8BuIWtrmSE9UYios10/jTRp9OvIrt8FbjjgdxXL9Kad0RLRi4BI9O9WrC9ksJgY2IBOc+lVM0HBGOx60pRuhwfKz07R/E3noizsAemfWugW9Vl4fjrXjNpeNbSAMcqOldTZay5A+fctc8k0dlOakdnczqyk5rGnlGSBVf+0hKvBBNV2m3Hj9KwnudKJ93OaRpQO+KhXcwOKq3D56Zo5Qegk9wDkDNcxqd2ZZmjBO0ferQ1C6EEe1Th2B61z5OSckk10Uo2OOtU6B2pQaTNKBWyOUepIrq/CfhC58TpeSxy+UlquAxGQzHoK5UAY+bp1r6H+HFpbaL4DtRMds90TM+R1z0B/Csa0+VGlOPM9Txu68I6/ZsA+nvIAcKyc5qS38N+IVkWaDTruOQc70ODX0nFp9lMocgYI4weKcbC1jPG7H6VzrEM29kjxbQ/H/iXQryC21W0luog4GXQhx+PeivbV0iyuJkLRKxz/EAaKarNkOBHeakImQmKXJXONtQw6pC4yGI9mXFFFVzPmsaWQl3qUcJUfMA3fFO+3RDb8jPn0FFFac7I5UUNT1iGzgLFoY23YAeQA/lWB4j8VaXHYxxyX9mszHIj8zJooq91Yiyvc5nWjpviHw7cWz3VoswG6KTzhww9K8eIKEq33gcH60UVpBW0M59xM80UUVRO4jKCOaWK4lt3BjOCf4fX60UUnqNNrY6vToZLm3WSS4tLZycBXmAJqyymK4EPmQySf9M5A1FFc84K51QqSsaMENtdKqw3sLS5+ZFPKn0Nc3rt9Pp93JAbd0bs7jhvcUUVMIrmFKpJnNyzPI26T5mPUmo80UV0rQ55asKeooooQma/h7Rptf12102Ef6xx5jY4Ve5NfQMunTWrQwxN5sKgLtHTAoorjr+87M6KWiuWRdR2yE+RMjDtk4p0N8Jk3O0/J4UGiiub2SOiMrosvePBLDiOVY2cfPnkUUUU1TS6ibP/2Q==" alt="Prof. Weizhi Meng" class="org-photo" />
         <div class="name">Prof. Weizhi Meng</div>
         <div class="affil">Full Professor, School of Computing and Communications<br>Lancaster University, United Kingdom</div>
         <div class="email">w.meng3@lancaster.ac.uk</div>
       </div>
     </div>
 
-    <div style="margin-top:2.5rem;">
-      <div class="section-label" style="margin-bottom:0.8rem;">Technical Program Committee</div>
-      <div class="pc-grid">
-        <div class="pc-item"><div class="pc-name">Priyanka Kamboj</div><div class="pc-affil">IIIT Allahabad</div></div>
-        <div class="pc-item"><div class="pc-name">Sarada Prasad Gochhayat</div><div class="pc-affil">IIT Jammu</div></div>
-        <div class="pc-item"><div class="pc-name">Utkalika Satapathy</div><div class="pc-affil">IIIT Bhubaneswar</div></div>
-        <div class="pc-item"><div class="pc-name">Kumar Prateek</div><div class="pc-affil">NIT Jalandhar</div></div>
-        <div class="pc-item"><div class="pc-name">Meenu Rani Dey</div><div class="pc-affil">IIIT Bhubaneswar</div></div>
-        <div class="pc-item"><div class="pc-name">Sujit Sangram Sahoo</div><div class="pc-affil">NFSU Bhubaneswar</div></div>
-        <div class="pc-item"><div class="pc-name">Moumita Patra</div><div class="pc-affil">IIT Guwahati</div></div>
-        <div class="pc-item"><div class="pc-name">Nabajyoti Mazumdar</div><div class="pc-affil">IIIT Allahabad</div></div>
-        <div class="pc-item"><div class="pc-name">Subrata Dutta</div><div class="pc-affil">NIT Jamshedpur</div></div>
-      </div>
+    <!-- PC Members -->
+    <div class="pc-section-label">Technical Program Committee</div>
+    <div class="pc-grid">
+      <div class="pc-item"><div class="pc-name">Pooria Madani</div><div class="pc-affil">Ontario Tech University, Canada</div></div>
+      <div class="pc-item"><div class="pc-name">Mahmoud Nabil Mahmoud</div><div class="pc-affil">NC A&amp;T University, USA</div></div>
+      <div class="pc-item"><div class="pc-name">Kouichi Sakurai</div><div class="pc-affil">Kyushu University, Japan</div></div>
+      <div class="pc-item"><div class="pc-name">Jun Shao</div><div class="pc-affil">Zhejiang Gongshang University, China</div></div>
+      <div class="pc-item"><div class="pc-name">Guozi Sun</div><div class="pc-affil">Nanjing Univ. of Posts &amp; Telecomm., China</div></div>
+      <div class="pc-item"><div class="pc-name">Priyanka Kamboj</div><div class="pc-affil">IIIT Allahabad</div></div>
+      <div class="pc-item"><div class="pc-name">Sarada Prasad Gochhayat</div><div class="pc-affil">IIT Jammu</div></div>
+      <div class="pc-item"><div class="pc-name">Utkalika Satapathy</div><div class="pc-affil">IIIT Bhubaneswar</div></div>
+      <div class="pc-item"><div class="pc-name">Kumar Prateek</div><div class="pc-affil">NIT Jalandhar</div></div>
+      <div class="pc-item"><div class="pc-name">Meenu Rani Dey</div><div class="pc-affil">IIIT Bhubaneswar</div></div>
+      <div class="pc-item"><div class="pc-name">Sujit Sangram Sahoo</div><div class="pc-affil">NFSU Bhubaneswar</div></div>
+      <div class="pc-item"><div class="pc-name">Moumita Patra</div><div class="pc-affil">IIT Guwahati</div></div>
+      <div class="pc-item"><div class="pc-name">Nabajyoti Mazumdar</div><div class="pc-affil">IIIT Allahabad</div></div>
+      <div class="pc-item"><div class="pc-name">Subrata Dutta</div><div class="pc-affil">NIT Jamshedpur</div></div>
     </div>
   </div>
 </section>
