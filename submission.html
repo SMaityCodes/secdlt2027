@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submission Guidelines — SecDLT 2027</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0a1628; --navy2: #112240; --blue: #1e4db7; --blue2: #2563eb;
+      --cyan: #06b6d4; --gold: #f59e0b; --purple: #7c3aed; --teal: #0d9488;
+      --white: #ffffff; --offwhite: #f8fafc; --light: #f1f5f9;
+      --muted: #64748b; --text: #1e293b; --border: #e2e8f0;
+      --grad1: linear-gradient(135deg, #0a1628 0%, #112240 40%, #1a3a6b 100%);
+      --grad2: linear-gradient(135deg, #1e4db7, #7c3aed);
+      --grad3: linear-gradient(135deg, #06b6d4, #0d9488);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; color: var(--text); background: var(--offwhite); }
+
+    nav {
+      position: sticky; top: 0; z-index: 100; background: var(--navy);
+      border-bottom: 3px solid transparent;
+      border-image: linear-gradient(90deg, #1e4db7, #7c3aed, #06b6d4) 1;
+      padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 58px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+    nav .brand {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem;
+      background: linear-gradient(90deg, #06b6d4, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      text-decoration: none; letter-spacing: 0.02em;
+    }
+    nav ul { list-style: none; display: flex; gap: 1.8rem; }
+    nav ul a { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    nav ul a:hover, nav ul a.active { color: var(--cyan); }
+
+    .page-hero {
+      background: var(--grad1); color: white; padding: 3.5rem 2rem 3rem; position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(30,77,183,0.3) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 20%, rgba(124,58,237,0.2) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .page-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px),
+                  repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.03) 39px, rgba(255,255,255,0.03) 40px);
+      pointer-events: none;
+    }
+    .page-hero-inner { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; }
+    .pill-label {
+      display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan);
+      background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.3);
+      border-radius: 100px; padding: 0.25rem 0.75rem; margin-bottom: 0.75rem;
+    }
+    .page-hero h1 {
+      font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700; line-height: 1.2; color: white;
+    }
+    .page-hero h1 .accent { background: linear-gradient(90deg, #06b6d4, #fbbf24); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .page-hero p { color: rgba(255,255,255,0.6); margin-top: 0.5rem; font-size: 0.95rem; }
+
+    .section-wrap { padding: 4rem 2rem; max-width: 960px; margin: 0 auto; }
+    .section-wrap.white { max-width: 100%; background: var(--white); padding: 4rem 2rem; }
+    .section-wrap.white .inner { max-width: 960px; margin: 0 auto; }
+    .section-wrap.dark { max-width: 100%; background: var(--navy); padding: 4rem 2rem; }
+    .section-wrap.dark .inner { max-width: 960px; margin: 0 auto; }
+
+    h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.7rem; font-weight: 700; color: var(--navy); margin-bottom: 1.2rem; }
+    h2 .acc { background: var(--grad2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .dark h2 { color: white; }
+    p { margin-bottom: 1rem; color: var(--muted); }
+    .dark p { color: rgba(255,255,255,0.6); }
+    strong { color: var(--text); }
+    .dark strong { color: white; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; }
+    .about-card { background: var(--offwhite); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; position: relative; overflow: hidden; }
+    .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--grad2); }
+    .about-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--blue2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+    .about-card p { font-size: 0.88rem; margin: 0; }
+
+    .topic-category { font-family: 'Space Grotesk', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.75rem; margin: 2rem 0 0.75rem; color: var(--navy); }
+    .topic-category::before { content: ''; display: inline-block; width: 28px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+    .cat-1::before { background: linear-gradient(90deg, #1e4db7, #7c3aed); }
+    .cat-2::before { background: linear-gradient(90deg, #06b6d4, #0d9488); }
+    .cat-3::before { background: linear-gradient(90deg, #f59e0b, #ef4444); }
+    .topics-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1.5rem; margin-bottom: 0.5rem; }
+    .topics-list li { font-size: 0.88rem; padding: 0.5rem 0.75rem 0.5rem 2rem; position: relative; background: var(--offwhite); border-radius: 8px; border: 1px solid var(--border); line-height: 1.5; color: var(--text); }
+    .topics-list li::before { content: '▸'; position: absolute; left: 0.75rem; color: var(--blue2); font-size: 0.7rem; top: 0.55rem; }
+
+    .dates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+    .date-card { background: var(--navy2); border-radius: 16px; padding: 1.4rem 1.5rem; border: 1px solid rgba(255,255,255,0.08); }
+    .date-card.featured { background: var(--grad2); border: none; }
+    .date-card .dc-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 0.4rem; }
+    .date-card.featured .dc-label { color: rgba(255,255,255,0.8); }
+    .date-card .dc-value { font-family: 'Space Grotesk', sans-serif; font-size: 1.05rem; font-weight: 600; color: white; }
+    .aoe-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 0.75rem; font-style: italic; }
+
+    .sub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+    .sub-card { background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 1.3rem 1.4rem; position: relative; overflow: hidden; }
+    .sub-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--grad2); border-radius: 4px 0 0 4px; }
+    .sub-card h3 { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue2); margin-bottom: 0.6rem; font-weight: 600; }
+    .sub-card p { font-size: 0.88rem; margin-bottom: 0.3rem; color: var(--text); }
+    code { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; background: var(--light); padding: 0.2rem 0.45rem; border-radius: 6px; color: var(--purple); border: 1px solid var(--border); }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; padding: 0.75rem 2rem; background: var(--grad2); color: white; font-family: 'Space Grotesk', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none; border-radius: 100px; }
+
+    .schedule-wrap { margin-top: 1.5rem; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    .schedule-table { width: 100%; border-collapse: collapse; }
+    .schedule-table th { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.5); padding: 0.75rem 1.2rem; text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; }
+    .schedule-table td { padding: 0.85rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); vertical-align: top; color: rgba(255,255,255,0.85); font-size: 0.88rem; }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table .time { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--cyan); white-space: nowrap; width: 130px; }
+    .schedule-table .break-row td { background: rgba(6,182,212,0.05); color: rgba(255,255,255,0.4); font-style: italic; }
+    .schedule-table .break-row .time { color: rgba(6,182,212,0.5); }
+    .schedule-table .highlight-row td { background: rgba(124,58,237,0.1); }
+    .session-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.6rem; border-radius: 100px; margin-right: 0.4rem; background: rgba(37,99,235,0.2); color: #93c5fd; }
+    .keynote-placeholder { background: rgba(6,182,212,0.05); border: 1px dashed rgba(6,182,212,0.25); border-radius: 12px; padding: 1.2rem; text-align: center; color: rgba(255,255,255,0.4); font-style: italic; font-size: 0.88rem; margin-top: 1.5rem; }
+
+    .org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1.5rem; }
+    .org-card { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 1.8rem 1.4rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.2s; }
+    .org-card:hover { transform: translateY(-4px); }
+    .org-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--grad2); }
+    .org-photo { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 1rem; border: 3px solid transparent; background: linear-gradient(white, white) padding-box, var(--grad2) border-box; }
+    .org-name { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .org-affil { font-size: 0.78rem; color: var(--muted); line-height: 1.4; }
+
+    .pc-section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 2.5rem 0 1rem; display: flex; align-items: center; gap: 1rem; }
+    .pc-section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .pc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    .pc-item { background: var(--offwhite); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 0.9rem; }
+    .pc-name { font-weight: 600; color: var(--navy); font-size: 0.85rem; }
+    .pc-affil { font-size: 0.72rem; color: var(--muted); margin-top: 0.15rem; line-height: 1.3; }
+
+    .venue-banner { width: 100%; position: relative; overflow: hidden; height: 280px; }
+    .venue-img { width: 100%; height: 280px; object-fit: cover; object-position: center; display: block; filter: brightness(0.75); }
+    .venue-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,22,40,0.6) 0%, transparent 50%, rgba(10,22,40,0.3) 100%); }
+    .venue-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,22,40,0.85)); color: rgba(255,255,255,0.85); font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; padding: 2rem 2rem 1rem; text-align: center; }
+
+    .hero-meta { display: flex; justify-content: flex-start; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .hero-chip { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 0.45rem 1rem; }
+    .hero-chip .label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cyan); }
+    .hero-chip .value { font-size: 0.85rem; color: rgba(255,255,255,0.9); font-weight: 500; }
+
+    footer { background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; padding: 2rem; font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; border-top: 3px solid transparent; border-image: linear-gradient(90deg, #1e4db7, #7c3aed, #06b6d4) 1; }
+    footer a { color: var(--cyan); text-decoration: none; }
+
+    @media (max-width: 700px) {
+      nav ul { gap: 0.8rem; }
+      nav ul a { font-size: 0.65rem; }
+      .about-grid, .topics-list, .dates-grid, .sub-grid, .org-grid, .pc-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="index.html">SecDLT'27</a>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="topics.html">Topics</a></li>
+    <li><a href="dates.html">Dates</a></li>
+    <li><a href="submission.html" class="active">Submit</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="organizers.html">Organizers</a></li>
+  </ul>
+</nav>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="pill-label">Authors</div>
+    <h1>Submission <span class="accent">Guidelines</span></h1>
+    <p>Authors are invited to submit original research papers not published or currently under review elsewhere. Submissions must be in English and follow the ACM double-column conference style.</p>
+  </div>
+</div>
+
+<div class="section-wrap">
+  <div class="sub-grid">
+    <div class="sub-card">
+      <h3>Paper Format</h3>
+      <p>All submissions must use the official LaTeX ACM article template (<code>acmart.cls</code>, v2.16+):</p>
+      <p><code>\documentclass[sigconf,authordraft]{acmart}</code></p>
+      <p>Templates: <a href="https://www.acm.org/publications/proceedings-template" target="_blank" style="color:var(--blue2);">acm.org/publications/proceedings-template</a></p>
+    </div>
+    <div class="sub-card">
+      <h3>Paper Length</h3>
+      <p><strong>Full Papers:</strong> Up to 10 pages (double-column, including figures, tables, and references). A clearly marked appendix is permitted.</p>
+      <p><strong>Short Papers:</strong> Up to 5 pages (double-column, including all content).</p>
+    </div>
+    <div class="sub-card">
+      <h3>Review Process</h3>
+      <p><strong>Double-blind review</strong> — author names, affiliations, and self-identifying references must be removed from submissions.</p>
+      <p>Minimum 3 reviews per paper. Acceptance rate capped at <strong>40%</strong> per ICDCN steering committee policy.</p>
+    </div>
+    <div class="sub-card">
+      <h3>Registration</h3>
+      <p>ICDCN 2027 follows a <strong>single registration fee</strong> for the entire 4-day event. There is no workshop-only registration fee.</p>
+      <p>At least one author of each accepted paper must register and <strong>present in person</strong>.</p>
+    </div>
+    <div class="sub-card">
+      <h3>Generative AI Policy</h3>
+      <p>Use of generative AI tools is permitted in accordance with <a href="https://www.acm.org/publications/policies/frequently-asked-questions" target="_blank" style="color:var(--blue2);">ACM guidelines</a>.</p>
+    </div>
+    <div class="sub-card">
+      <h3>Publication</h3>
+      <p>Accepted papers will appear in the <strong>ACM ICPS companion proceedings</strong>, indexed by ACM, DBLP, and Scopus.</p>
+      <p>Authors not in the ACM Open program may be required to pay an APC. See <a href="https://www.acm.org/publications/icps/author-guidance" target="_blank" style="color:var(--blue2);">ACM author guidance</a>.</p>
+    </div>
+  </div>
+  <a class="btn-primary" href="https://easychair.org/my/conference?conf=icdcn2027" target="_blank">Submit via EasyChair →</a>
+</div>
+<footer>
+  <p>SecDLT 2027 &middot; Co-located with <a href="https://cs3-lab.github.io/icdcn/index.html" target="_blank">ICDCN 2027</a> &middot; NITK Surathkal, India &middot; January 4–7, 2027</p>
+</footer>
+</body>
+</html>
